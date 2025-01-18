@@ -1,3 +1,4 @@
+const title = document.firstElementChild.firstChild.childNodes[5];
 const name = document.getElementById('name');
 const img = document.getElementById('image');
 const date = document.getElementById('date');
@@ -49,6 +50,7 @@ btn.addEventListener('click', () => {
 		name.innerText = response.name;
 		img.src = `https://openweathermap.org/img/wn/${response.weather[0].icon}.png`;
 		img.classList.remove('d-none');
+		title.innerText = 'Weather of ' + response.name;
 		date.innerText = new Date(response.dt * 1000).toLocaleDateString();
 		time.innerText = new Date(response.dt * 1000).toLocaleTimeString();
 		cloudiness.innerText = response.clouds.all; 
